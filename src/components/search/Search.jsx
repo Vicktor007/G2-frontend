@@ -7,11 +7,9 @@ const Search = ({ value, onChange }) => {
   const inputRef = useRef(null)
 
   useEffect(() => {
-    if(value) {
+    
       inputRef.current?.focus()
-    } else {
-       null
-    }
+    
   },[value])
   return (
     <div className={styles.search}>

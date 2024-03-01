@@ -51,13 +51,13 @@ const CustomerDetail = () => {
       <h3 className="--mt p-title">Customer Details</h3>
         {customer && (
           <div className="detail">
-            <Card cardClass="group image-card">
+            <Card cardClass="group image-card imgwidth">
             {isLoading ? (
               
               <></>
               ) : (
             customer?.passport_photo ? (
-            <img
+            <img className="passport"
             src={customer.passport_photo.filePath}
             alt={customer.passport_photo.fileName}
           />

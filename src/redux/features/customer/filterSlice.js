@@ -26,7 +26,7 @@ const filterSlice = createSlice({
             const customerExpiryDate = new Date(customer.expiry_date);
             return customerExpiryDate < expiryDate && customerExpiryDate >= currentDate;
           });
-        } else if (search.toLowerCase() === "pending") {
+        } else if (search.toLowerCase() === "pending licenses") {
           tempCustomers = customers.filter((customer) => {
             const pendingLicense = (customer.production_date);
             return pendingLicense === "";
@@ -36,7 +36,7 @@ const filterSlice = createSlice({
               const customerCompletionDate = new Date(customer.date_of_completion);
               return customerCompletionDate > currentDate;
             });
-          }  else if (search.toLowerCase() === "owing") {
+          }  else if (search.toLowerCase() === "owing customers") {
               tempCustomers = customers.filter((customer) => {
                const amount_paid = parseFloat(customer?.amount_paid);
                const price = parseFloat(customer?.price)

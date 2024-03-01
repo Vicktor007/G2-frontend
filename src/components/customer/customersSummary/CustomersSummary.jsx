@@ -56,9 +56,11 @@ const CustomersSummary = ({ customers, handleButtonClick }) => {
       <div className="info-summary">
         <InfoBox
           icon={trainees}
-          title={"Total Customers"}
+          title={"All Customers"}
           count={customers?.length}
           bgColor="card1"
+          handleButtonClick={handleButtonClick}
+          searchText=""
         />
         <InfoBox
           icon={earningIcon}
@@ -83,7 +85,7 @@ const CustomersSummary = ({ customers, handleButtonClick }) => {
           title={"Owing Customers"}
           count={totalOwingCustomers}
           bgColor="card3"
-          searchText="owing"
+          searchText="owing customers"
           handleButtonClick={handleButtonClick}
         />
         <InfoBox
@@ -99,7 +101,7 @@ const CustomersSummary = ({ customers, handleButtonClick }) => {
           title={"Pending Licenses"}
           count={pendingLicenses}
           bgColor="card5"
-          searchText="pending"
+          searchText="pending licenses"
           handleButtonClick={handleButtonClick}
         />
       </div>

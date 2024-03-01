@@ -19,8 +19,14 @@ import CustomersSummary from "../customersSummary/CustomersSummary";
 const CustomersList = ({ customers, isLoading }) => {
   const [search, setSearch] = useState("");
   const filteredCustomers = useSelector(selectFilteredCustomers);
+
+
   const handleButtonClick = (searchText) => {
-    setSearch(searchText);
+    if(searchText) {
+      setSearch(searchText);
+    } else {
+      setSearch("")
+    }
   };
   const dispatch = useDispatch();
 

@@ -115,23 +115,27 @@ const CustomersList = ({ customers, isLoading }) => {
               <tbody>
                 
                 {currentItems.map((customer, index) => {
-            const { _id, name, category, price, amount_paid, expiry_date } = customer;
-            // const isExpired = moment().isAfter(moment(expiry_date));
-            // const isExpiring = moment().isBefore(moment(expiry_date)) && moment().add(3, 'months').isAfter(moment(expiry_date));
-            // const outOfStock = customer?.quantity <= 0;
-            //  let backgroundColor;
-            //   if (isExpired) {
-            //    backgroundColor = '#f72d66';
-            //     } else if (isExpiring) {
-            //       backgroundColor = 'rgb(189, 189, 47)';
-            //        } else if (outOfStock) {
-            //        backgroundColor = '#de819b';
-            //          } else {
-            //           backgroundColor = 'transparent';
-            //             }
+            const { _id, name, category, price, amount_paid, expiry_date, date_of_completion } = customer;
+            const isExpired = moment().isAfter(moment(expiry_date));
+            const isExpiring = moment().isBefore(moment(date_of_completion)) && moment().add(3, 'days').isAfter(moment(date_of_completion));
+            const amountPaid = parseFloat(customer?.amount_paid);
+               const itemPrice = parseFloat(customer?.price);
+                
+                const owingCustomers= amountPaid < itemPrice
+            
+             let backgroundColor;
+              if (isExpired) {
+               backgroundColor = '#f72d66';
+                } else if (isExpiring) {
+                  backgroundColor = 'rgb(189, 189, 47)';
+                   } else if (owingCustomers) {
+                   backgroundColor = '#de819b';
+                     } else {
+                      backgroundColor = 'transparent';
+                        }
                     return (
-                      //  <tr key={_id} style={{ backgroundColor }}>
-                      <tr key={_id}>
+                      
+                      <tr key={_id} style={{ backgroundColor }}>
                       <td>{index + 1}</td>
                        <td><NavLink to={`/customer-detail/${_id}`}>{name ? shortenText(name, 16) : ''}</NavLink></td>
                        <td>{category}</td>

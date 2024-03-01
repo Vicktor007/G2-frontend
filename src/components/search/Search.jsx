@@ -17,7 +17,7 @@ const Search = ({ value, onChange }) => {
       <input
       ref={inputRef}
         type="search"
-        placeholder="Search products"
+        placeholder="Search customers"
         value={value}
         onChange={onChange}
       />

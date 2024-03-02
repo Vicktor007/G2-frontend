@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./InfoBox.scss";
 
-const CategoryBox = ({ bgColor, title, customers, count, icon, handleButtonClick }) => {
+const CategoryBox = ({ bgColor, customers, count, icon, handleButtonClick }) => {
 
 const [open, setOpen] = useState(false);
 const uniqueCategories = [
@@ -20,13 +20,14 @@ const toggleCategories = () => {
 
   return (
    
-    <div className={`category-box ${bgColor}`} onClick={toggleCategories}>
+    <div className={`info-box ${bgColor}`} onClick={toggleCategories} style={{zIndex:999}}>
       <span className="info-icon --color-white">{icon}</span>
       <span className="info-text">
         <p><b>Categories</b></p>
         <h4>{count}</h4>
       </span>
-      {open && (<div className="categoryModal">
+      {open && (
+      <div className="categoryModal">
       <ul>
       {uniqueCategories?.map((category)=>(
         <React.Fragment key={category}>

@@ -17,7 +17,7 @@ const Home = () => {
         <div className="hero-text">
           <h2 className="hero-h1">God's Grace Management System</h2>
           <p className="hero-paragraph">
-            System to control and manage new, existing and previous customers in the our database in
+            System to control and manage new, existing and previous customers in  our database in
             real time.
           </p>
           <div className="hero-buttons">

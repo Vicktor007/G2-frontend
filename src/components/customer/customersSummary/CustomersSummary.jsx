@@ -13,7 +13,7 @@ import { TbUsersGroup } from "react-icons/tb";
 import { MdOutlineGroupRemove, MdPersonAddAlt1 } from "react-icons/md";
 import { MdAddShoppingCart, MdPendingActions } from "react-icons/md";
 import { CALC_AMOUNT_OWED, CALC_CATEGORY, CALC_CUSTOMERS_IN_TRAINING, CALC_CUSTOMERS_WITH_PENDING_LICENSES, CALC_OWING_CUSTOMERS, CALC_STORE_VALUE, selectCategory, selectPendingLicenses, selectStudentsInTraining, selectTotalAmountOwed, selectTotalOwingCustomers, selectTotalStoreValue } from "../../../redux/features/customer/customerSlice";
-
+import CategoryBox from "../../categoryBox/CategoryBox";
 // Icons
 const earningIcon = <AiFillDollarCircle size={40} color="#fff" />;
 const productIcon = <BsCart4 size={40} color="#fff" />;
@@ -74,12 +74,13 @@ const CustomersSummary = ({ customers, handleButtonClick }) => {
           count={`$${formatNumbers(totalAmountOwed.toFixed(2))}  `}
           bgColor="card3"
         />
-        <InfoBox
-          icon={categoryIcon}
-          title={"All Categories"}
-          count={category?.length}
-          bgColor="card4"
-        />
+        <CategoryBox
+        title={"All Categories"}
+        icon={categoryIcon}
+        count={category?.length}
+         bgColor="card4"
+          customers={customers}
+          handleButtonClick={handleButtonClick}/>
         <InfoBox
           icon={owingCustomers}
           title={"Owing Customers"}

@@ -16,7 +16,10 @@ const filterSlice = createSlice({
       let tempCustomers = [];
 
       if (Array.isArray(customers)) {
-        if (search.toLowerCase() === "expired") {
+        if (search.trim() === "") {
+          tempCustomers = customers;
+        } else if 
+         (search.toLowerCase() === "expired") {
           tempCustomers = customers.filter((customer) => {
             const customerExpiryDate = new Date(customer.expiry_date);
             return customerExpiryDate < currentDate;
@@ -47,9 +50,10 @@ const filterSlice = createSlice({
           tempCustomers = customers.filter((customer) => {
             const customerName = customer.name ? customer.name.toLowerCase() : "";
             const customerCategory = customer.category ? customer.category.toLowerCase() : "";
+            const lowerCaseSearch = search.toLowerCase();
             return (
-              customerName.includes(search.toLowerCase()) ||
-              customerCategory.includes(search.toLowerCase())
+              customerName === lowerCaseSearch ||
+              customerCategory === lowerCaseSearch
             );
           });
         }

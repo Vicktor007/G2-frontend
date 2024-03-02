@@ -15,10 +15,10 @@ const Home = () => {
     <div className="home  displayflex-row">
       <section className="container  hero">
         <div className="hero-text">
-          <h2 className="hero-h1">Inventory {"&"} Stock Management Solution</h2>
+          <h2 className="hero-h1">God's Grace Management System</h2>
           <p className="hero-paragraph">
-            Inventory system to control and manage proucts in the warehouse in
-            real timeand integrated to make it easier to develop your business.
+            System to control and manage new, existing and previous customers in the our database in
+            real time.
           </p>
           <div className="hero-buttons">
           <ShowOnLogout>
